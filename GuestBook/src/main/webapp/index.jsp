@@ -32,21 +32,27 @@
             section img{
                 margin: 20px;
             }
-            
+            .search{
+            width: 50vw;
+            border: 1px solid #1b5ac;
+            background: #fffff;
+            text-align: center;
+            online: none;
+            color: #fffff;
+            }
         </style>
     </head>
     <body>
-        <header>
-            <img src="..jpg">
+        <img src="img/rogo.png" onclick="location.href='index.jsp'" style="width: 10vw">
             <div class="headerbtn">
-                <button onclick="location.href=''">목록</button>
-                <button onclick="location.href=''">캘린더</button>
-                <button onclick="location.href=''">검색</button>
-            </div>
-        </header>
+            <header>
+                <button onclick="location.href='List.jsp'">목록</button>
+                <button onclick="location.href='Calender.jsp'">캘린더</button>
+            </div>        
+            </header>
         <section>
             <form >
-                <img src="..jpg">
+                <img src="img/Kamera.png" style="width: 40vw">
     
                 <div class="write-content" >
                     <textarea id="summernote">
