@@ -22,7 +22,7 @@
     
             .headerbtn{
                 text-align: right;
-                margin-top: 145px;
+                margin-top: 10px;
             }
 </style>
 <img src="img/rogo.png" onclick="location.href='index.jsp'" style="width: 10vw">

@@ -27,7 +27,7 @@
     
             .headerbtn{
                 text-align: right;
-                margin-top: 145px;
+                margin-top: 10px;
             }
             section img{
                 margin: 20px;
