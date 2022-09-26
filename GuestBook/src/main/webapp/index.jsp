@@ -32,12 +32,12 @@
                 margin: 20px;
             }
             .search{
-            width: 50vw;
-            border: 1px solid #1b5ac;
-            background: #fffff;
-            text-align: center;
-            online: none;
-            color: #fffff;
+	            width: 50vw;
+	            border: 1px solid #1b5ac;
+	            background: #fffff;
+	            text-align: center;
+	            online: none;
+	            color: #fffff;
             }
         </style>
     </head>
