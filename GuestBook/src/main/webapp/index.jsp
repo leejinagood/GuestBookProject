@@ -14,17 +14,16 @@
         <title>Write</title>
         <style>
             body{
-                width: 1000px;
+                width: 800px;
                 margin: 0 auto;
                 text-align: center;
             }
     
             header {
-                height: 200px;
+                height: 100px;
                 border-bottom: 1px solid black;
                 margin: 10px;
             }
-    
             .headerbtn{
                 text-align: right;
                 margin-top: 10px;
@@ -48,8 +47,8 @@
             <header>
                 <button onclick="location.href='List.jsp'">목록</button>
                 <button onclick="location.href='Calender.jsp'">캘린더</button>
-            </div>        
             </header>
+            </div> 
         <section>
             <form >
                 <img src="img/Kamera.png" style="width: 40vw">

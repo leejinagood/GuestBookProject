@@ -8,13 +8,13 @@
 </head>
 <style>
 			body{
-                width: 1000px;
+                width: 800px;
                 margin: 0 auto;
                 text-align: center;
             }
     
             header {
-                height: 200px;
+                height: 100px;
                 border-bottom: 1px solid black;
                 margin: 10px;
             }
@@ -37,6 +37,7 @@
             <header>
 	            <input class = "search" type="text" placeholder="제목+내용 검색하세요 " >
 	            <button>검색 </button>
+	            <button onclick="location.href='index.jsp'">홈 </button>
                 <button onclick="location.href='List.jsp'">목록</button>
                 <button onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
