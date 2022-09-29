@@ -15,13 +15,13 @@
     
             header {
                 height: 100px;
-                border-bottom: 1px solid black;
+                border-bottom: 1vw solid #3399CC;
                 margin: 10px;
             }
     
             .headerbtn{
                 text-align: right;
-                margin-top: 10px;
+                margin-top: 30px;
             }
             .search{
             width: 50vw;
@@ -32,7 +32,7 @@
             }
 </style>
 <body>
-		<img src="img/rogo.png" onclick="location.href='index.jsp'" style="width: 10vw">
+		<img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
         <div class="headerbtn">
             <header>
 	            <input class = "search" type="text" placeholder="제목+내용 검색하세요 " >

@@ -18,15 +18,14 @@
                 margin: 0 auto;
                 text-align: center;
             }
-    
             header {
                 height: 100px;
-                border-bottom: 1px solid black;
+                border-bottom: 1vw solid #3399CC;
                 margin: 10px;
             }
             .headerbtn{
                 text-align: right;
-                margin-top: 10px;
+                margin-top: 30px;
             }
             section img{
                 margin: 20px;
@@ -39,14 +38,25 @@
 	            online: none;
 	            color: #fffff;
             }
+            #btn{
+            
+            }
+            /* .btn{
+				position: absolute;
+           		color: rgba(30, 22, 54, 0.6);
+				box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+				color: rgba(255, 255, 255, 0.85);
+				box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+            } */
+            
         </style>
     </head>
     <body>
-        <img src="img/rogo.png" onclick="location.href='index.jsp'" style="width: 10vw">
+        <img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
             <div class="headerbtn">
             <header>
-                <button onclick="location.href='List.jsp'">목록</button>
-                <button onclick="location.href='Calender.jsp'">캘린더</button>
+                <button id="btn" onclick="location.href='List.jsp'">목록</button>
+                <button id="btn" onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
             </div> 
         <section>

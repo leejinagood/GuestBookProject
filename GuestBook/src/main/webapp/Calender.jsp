@@ -16,13 +16,13 @@
     
         header{
              height: 100px;
-             border-bottom: 1px solid black;
+             border-bottom: 1vw solid #3399CC;
              margin: 10px;
             }
     
         .headerbtn{
              text-align: right;
-             margin-top: 10px;
+             margin-top: 30px;
             }
     	a { color:#000000;text-decoration:none; }
     	.scriptCalendar { text-align:center; }
@@ -31,7 +31,7 @@
     	.scriptCalendar > thead > tr:last-child > td { background-color:#90EE90; }
     	.scriptCalendar > tbody > tr > td { width:50px;height:50px; }
 </style>
-<img src="img/rogo.png" onclick="location.href='index.jsp'" style="width: 10vw">
+<img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
         <div class="headerbtn">
             <header>
             	<button onclick="location.href='index.jsp'">홈 </button>
