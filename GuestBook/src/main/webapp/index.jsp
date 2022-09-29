@@ -39,15 +39,12 @@
 	            color: #fffff;
             }
             #btn{
-            
-            }
-            /* .btn{
-				position: absolute;
+           	 	position: absolute;
            		color: rgba(30, 22, 54, 0.6);
 				box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
 				color: rgba(255, 255, 255, 0.85);
 				box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
-            } */
+            }
             
         </style>
     </head>
@@ -55,8 +52,8 @@
         <img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
             <div class="headerbtn">
             <header>
-                <button id="btn" onclick="location.href='List.jsp'">목록</button>
-                <button id="btn" onclick="location.href='Calender.jsp'">캘린더</button>
+                <button onclick="location.href='List.jsp'">목록</button>
+                <button onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
             </div> 
         <section>
