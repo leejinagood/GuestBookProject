@@ -58,7 +58,7 @@
             </div> 
         <section>
             <form >
-                <img src="img/Kamera.png" style="width: 40vw">
+                <img src="img/Kamera.png" onclick="location.href='Camera.html'" style="width: 40vw">
     
                 <div class="write-content" >
                     <textarea id="summernote">
