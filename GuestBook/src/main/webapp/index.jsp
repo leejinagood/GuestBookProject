@@ -12,55 +12,21 @@
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         <title>Write</title>
-        <style>
-            body{
-                width: 800px;
-                margin: 0 auto;
-                text-align: center;
-            }
-            header {
-                height: 100px;
-                border-bottom: 1vw solid #3399CC;
-                margin: 10px;
-            }
-            .headerbtn{
-                text-align: right;
-                margin-top: 30px;
-            }
-            section img{
-                margin: 20px;
-            }
-            .search{
-	            width: 50vw;
-	            border: 1px solid #1b5ac;
-	            background: #fffff;
-	            text-align: center;
-	            online: none;
-	            color: #fffff;
-            }
-            #btn{
-           	 	position: absolute;
-           		color: rgba(30, 22, 54, 0.6);
-				box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
-				color: rgba(255, 255, 255, 0.85);
-				box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
-            }
-            
-        </style>
     </head>
+    <link rel="stylesheet" href="index.css">
     <body>
-        <img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
+        <img class="rogoimg" src="img/rogoimg.png" onclick="location.href='index.jsp'">
             <div class="headerbtn">
             <header>
-                <button onclick="location.href='List.jsp'">목록</button>
-                <button onclick="location.href='Calender.jsp'">캘린더</button>
+            	<button class="btn1 color1" onclick="location.href='List.jsp'">목록</button>
+                <button class="btn1 color2" onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
             </div> 
         <section>
             <form >
                 <img src="img/Kamera.png" onclick="location.href='Camera.html'" style="width: 40vw">
     
-                <div class="write-content" >
+                <div>
                     <textarea id="summernote">
                     </textarea>
                 </div>
@@ -84,7 +50,7 @@
                      });
     
                 </script>
-                <button type="submit">등록</button>
+                <button class="btn2" type="submit">등록</button>
             </form>
         </section>
     </body>
