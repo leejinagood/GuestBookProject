@@ -20,7 +20,7 @@
 	<%	
 		
 		String base64data = request.getParameter("photodata"); // 전달받는 photo URL Data
-		String imgfile_name = "3"; // 최종적으로 사진 파일 명이 될 데이터 
+		String imgfile_name = "3"; // 최종적으로 사진 파일 명이 될 데이터 (받아오는 값)
 		String path = "/Users/seodong-geun/Desktop/test/" + imgfile_name;  // 우선 imgfile_name 이름으로 생성할 폴더 경로 
 		File newFile = new File(path); 
 		

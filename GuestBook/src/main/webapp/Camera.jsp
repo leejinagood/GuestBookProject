@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -60,14 +62,14 @@
 </head>
 
 <body>
-	
 
     <button id="start-camera">촬영시작</button>
     
     <video id="video" width="320" height="240" autoplay></video>
 
-    <button id="click-photo"><%%></button>
-    
+    <button id="click-photo">촬영</button>
+    <button id="re_click-photo">재촬영</button>
+
     
     <div id="dataurl-container">
    		<div id="dataurl-header">촬영결과</div>	
@@ -85,13 +87,14 @@
         let camera_button = document.querySelector("#start-camera");
         let video = document.querySelector("#video");
         let click_button = document.querySelector("#click-photo");
+        let re_click_button = document.querySelector("#re_click-photo");
         let canvas = document.querySelector("#canvas");
         let dataurl = document.querySelector("#dataurl");
         let dataurl_container = document.querySelector("#dataurl-container");
-       
+
         camera_button.addEventListener('click', async function() {
             let stream = null;
-
+            
             try {
                 stream = await navigator.mediaDevices.getUserMedia({
                     video: true,
@@ -114,11 +117,9 @@
             	Confirmation.style.display = 'none';
             }           
         });
-
         click_button.addEventListener('click', function() {
             canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
             let image_data_url = canvas.toDataURL('image/jpeg');
- 
 			document.MyForm.photodata.value = image_data_url;
 
             // data URL 화면 숨기기  dataurl.value = image_data_url;
@@ -131,7 +132,23 @@
             if(Confirmation.style.display !== 'block') {
             	Confirmation.style.display = 'block';
             }  
-        });         
+        });   
+        re_click_button.addEventListener('click', function() {
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+            let image_data_url = canvas.toDataURL('image/jpeg');
+			document.MyForm.photodata.value = image_data_url;
+
+            // data URL 화면 숨기기  dataurl.value = image_data_url;
+            
+            dataurl_container.style.display = 'block';
+            
+
+            const Confirmation__btn = document.getElementById('Confirmation');
+            // photo_btn 숨기기 (display: none)
+            if(Confirmation.style.display !== 'block') {
+            	Confirmation.style.display = 'block';
+            }  
+        }); 
     </script>
 </body>
 
