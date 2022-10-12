@@ -32,6 +32,10 @@
             display: none;
         }
         
+        #re_click-photo {
+            display: none;
+        }
+        
         #dataurl-container {
             display: none;
         }
@@ -62,7 +66,7 @@
 </head>
 
 <body>
-
+	
     <button id="start-camera">촬영시작</button>
     
     <video id="video" width="320" height="240" autoplay></video>
@@ -79,7 +83,7 @@
          
     	<form action = "photoResult.jsp" method = "Post" name = "MyForm">
 			<input type="hidden" name="photodata" value=""> 
-    		<input type = "submit" id = "Confirmation" value = "OK" display = 'none'>
+    		<button = "submit" id = "Confirmation" display = 'none'>사진 결정</button>
         </form>
     </div>
 	
@@ -109,6 +113,7 @@
             video.style.display = 'block';
             camera_button.style.display = 'none';
             click_button.style.display = 'block';
+            re_click_button.style.display = 'block';
             
             
             const Confirmation__btn = document.getElementById('Confirmation');
@@ -116,7 +121,11 @@
             if(Confirmation.style.display !== 'none') {
             	Confirmation.style.display = 'none';
             }           
+         
         });
+        
+        
+        
         click_button.addEventListener('click', function() {
             canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
             let image_data_url = canvas.toDataURL('image/jpeg');
@@ -124,15 +133,19 @@
 
             // data URL 화면 숨기기  dataurl.value = image_data_url;
             
-            dataurl_container.style.display = 'block';
+            click_button.style.display = 'none';
+            re_click_button.style.display = 'bolck';
             
-
+            dataurl_container.style.display = 'block';
+           
+            
             const Confirmation__btn = document.getElementById('Confirmation');
             // photo_btn 숨기기 (display: none)
             if(Confirmation.style.display !== 'block') {
             	Confirmation.style.display = 'block';
             }  
         });   
+        
         re_click_button.addEventListener('click', function() {
             canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
             let image_data_url = canvas.toDataURL('image/jpeg');
@@ -141,13 +154,7 @@
             // data URL 화면 숨기기  dataurl.value = image_data_url;
             
             dataurl_container.style.display = 'block';
-            
-
-            const Confirmation__btn = document.getElementById('Confirmation');
-            // photo_btn 숨기기 (display: none)
-            if(Confirmation.style.display !== 'block') {
-            	Confirmation.style.display = 'block';
-            }  
+             
         }); 
     </script>
 </body>
