@@ -66,7 +66,7 @@
 
 <body>	
     <button id="start-camera">촬영시작</button>    
-    <video id="video" width="320" height="240" autoplay></video>
+    <video  id="video" width="320" height="240" autoplay></video>
     <button id="click-photo">촬영</button>
     <button id="re_click-photo">재촬영</button>
 

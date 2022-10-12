@@ -24,7 +24,7 @@
             </div> 
         <section>
             <form >
-                <img src="img/Kamera.png" onclick="location.href='Camera.html'" style="width: 40vw">
+                <img src="img/Kamera.png" onclick="location.href='Camera.jsp'" style="width: 40vw">
     
                 <div>
                     <textarea id="summernote">
