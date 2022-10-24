@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>calender</title>
 </head>
-    <img class="daelim" src="img/daelim.png"><br><br>
+<a href="https://dept.daelim.ac.kr/com/index.do"><img class="daelim" src="img/daelim.png" ></a><br><br>
 <link rel="stylesheet" href="Calender.css">
 <body>
 <img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
