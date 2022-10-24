@@ -43,7 +43,7 @@
            		width: 10vw;
 			    font-size: 2vw;
 			    font-weight: 600;
-			    color: #fff;
+			    color: #ADD8E6;
 			    cursor: pointer;
 			    margin: 1px;
 			    height: 55px;
@@ -74,10 +74,11 @@
     			 box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 			} */
 			#btn_main{
-			color: 	#ADD8E6;;
+			color: #fff;
 			}
 			p{
 				font-size: 2vw;
+				color: 	#2F4F4F;
 			}
             .rogoimg{
             width: 10vw;

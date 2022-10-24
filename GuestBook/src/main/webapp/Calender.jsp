@@ -70,7 +70,7 @@
             else { //월에 벗어난 다른 일수 
                 let exceptDay = new Date(doMonth.getFullYear(), doMonth.getMonth(), day);
                 column.innerText = autoLeftPad(exceptDay.getDate(), 2);
-                column.style.color = "#EEE8AA";
+                column.style.color = "#DCDCDC";
             }
             if(today.getFullYear() == date.getFullYear()) {
 
@@ -84,7 +84,7 @@
                         column.onclick = function(){ calendarChoiceDay(this); }
                     }
                     else if(date.getDate() == day) { //오늘 
-                        column.style.backgroundColor = "#FFB6C1";
+                        column.style.backgroundColor = "#E0FFFF";
                         column.style.cursor = "pointer";
                         column.onclick = function(){ calendarChoiceDay(this); }
                     }
@@ -121,7 +121,7 @@
             document.getElementsByClassName("choiceDay")[0].style.backgroundColor = "#FFFFFF";
             document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");
         }
-        column.style.backgroundColor = "#E0FFFF"; //클릭했을 때 배경색 
+        column.style.backgroundColor = "#FFB6C1"; //클릭했을 때 배경색 
         column.classList.add("choiceDay");
     }
     function autoLeftPad(num, digit) {
