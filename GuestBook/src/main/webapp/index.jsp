@@ -15,6 +15,7 @@
     </head>
     <link rel="stylesheet" href="index.css">
     <body>
+    <div class="head">
         <img class="rogoimg" src="img/rogoimg.png" onclick="location.href='index.jsp'">
             <div class="headerbtn">
             <header>
@@ -23,10 +24,11 @@
                 <button class="btn1 color2" onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
             </div> 
+            </div>
         <section>
             <form >
                 <img src="img/Kamera.png" onclick="location.href='Camera.jsp'" style="width: 40vw">
-    
+                <p><br>카메라를 클릭하세요!<br><br>
                 <div>
                     <textarea id="summernote">
                     </textarea>

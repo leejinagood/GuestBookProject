@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-			
   			body{
                 width: 900px;
                 margin: 0 auto;
@@ -11,7 +10,15 @@
                 border-bottom: 1vw solid #3399CC;
                 margin: 10px;
                 margin-right: 5px;
+
             }
+            /* .head{
+            	position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                background-color: #fff;
+            }  */
             .headerbtn{
                 text-align: right;
                 margin-top: 30px;
@@ -63,12 +70,11 @@
     			 box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 			} */
 			#btn_main{
-			color: #111;
+			color: 	#ADD8E6;;
 			}
-
-
-            
-            
+			p{
+				font-size: 2vw;
+			}
             .rogoimg{
             width: 10vw;
             }

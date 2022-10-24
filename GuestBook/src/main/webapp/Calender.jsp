@@ -6,40 +6,20 @@
 <meta charset="UTF-8">
 <title>calender</title>
 </head>
+<link rel="stylesheet" href="Calender.css">
 <body>
 <style>
-		body{
-             width: 800px;
-             margin: 0 auto;
-             text-align: center;
-            }
-    
-        header{
-             height: 100px;
-             border-bottom: 1vw solid #3399CC;
-             margin: 10px;
-            }
-    
-        .headerbtn{
-             text-align: right;
-             margin-top: 30px;
-            }
-    	a { color:#000000;text-decoration:none; }
-    	.scriptCalendar { text-align:center; }
-    	.scriptCalendar > thead > tr > td { width:50px;height:50px; }
-    	.scriptCalendar > thead > tr:first-child > td { font-weight:bold; }
-    	.scriptCalendar > thead > tr:last-child > td { background-color:#90EE90; }
-    	.scriptCalendar > tbody > tr > td { width:50px;height:50px; }
+		
 </style>
 <img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
         <div class="headerbtn">
             <header>
-            	<button onclick="location.href='index.jsp'">홈 </button>
-                <button onclick="location.href='List.jsp'">목록</button>
-                <button onclick="location.href='Calender.jsp'">캘린더</button>
+            <button class="btn1"  onclick="location.href='index.jsp'">홈 </button>
+            	<button class="btn1" onclick="location.href='List.jsp'">목록</button>
+                <button class="btn1" id="btn_main" onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
          </div> 
-         <script type="text/javascript">
+    <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
         buildCalendar();
     });
@@ -59,8 +39,8 @@
         let doMonth = new Date(today.getFullYear(), today.getMonth(), 1);
         let lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
         let tbCalendar = document.querySelector(".scriptCalendar > tbody");
-        document.getElementById("calYear").innerText = today.getFullYear();                                  // @param YYYY월
-        document.getElementById("calMonth").innerText = autoLeftPad((today.getMonth() + 1), 2);   // @param MM월
+        document.getElementById("calYear").innerText = today.getFullYear();       // 파라미터 YYYY월
+        document.getElementById("calMonth").innerText = autoLeftPad((today.getMonth() + 1), 2);   // 파라미터  MM월
 
         while(tbCalendar.rows.length > 0) {
             tbCalendar.deleteRow(tbCalendar.rows.length - 1);
@@ -79,40 +59,40 @@
             if(Math.sign(day) == 1 && lastDate.getDate() >= day) {
 
                 column.innerText = autoLeftPad(day, 2);
-
-                if(dom % 7 == 1) {
-                    column.style.color = "#FF4D4D";
+ 
+                if(dom % 7 == 1) { //토요일 
+                    column.style.color = "#F08080"; 
                 }
 
-                if(dom % 7 == 0) {
-                    column.style.color = "#4D4DFF";
+                if(dom % 7 == 0) { //일요일 
+                    column.style.color = "#2F4F4F";
                     row = tbCalendar.insertRow(); 
                 }
             }
-            else {
+            else { //월에 벗어난 다른 일수 
                 let exceptDay = new Date(doMonth.getFullYear(), doMonth.getMonth(), day);
                 column.innerText = autoLeftPad(exceptDay.getDate(), 2);
-                column.style.color = "#A9A9A9";
+                column.style.color = "#EEE8AA";
             }
             if(today.getFullYear() == date.getFullYear()) {
 
                 if(today.getMonth() == date.getMonth()) {
                     if(date.getDate() > day && Math.sign(day) == 1) {
-                        column.style.backgroundColor = "#E5E5E5";
+                        column.style.backgroundColor = "#AFEEEE"; //월에 해당하는 요일 배경
                     }
                     else if(date.getDate() < day && lastDate.getDate() >= day) {
                         column.style.backgroundColor = "#FFFFFF";
                         column.style.cursor = "pointer";
                         column.onclick = function(){ calendarChoiceDay(this); }
                     }
-                    else if(date.getDate() == day) {
-                        column.style.backgroundColor = "#FFFFE6";
+                    else if(date.getDate() == day) { //오늘 
+                        column.style.backgroundColor = "#FFB6C1";
                         column.style.cursor = "pointer";
                         column.onclick = function(){ calendarChoiceDay(this); }
                     }
                 } else if(today.getMonth() < date.getMonth()) {
                     if(Math.sign(day) == 1 && day <= lastDate.getDate()) {
-                        column.style.backgroundColor = "#E5E5E5";
+                        column.style.backgroundColor = "#E5E5E5"; //날짜가ㅏ 지나버린 요일 배경 색 
                     }
                 }
                 else {
@@ -143,7 +123,7 @@
             document.getElementsByClassName("choiceDay")[0].style.backgroundColor = "#FFFFFF";
             document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");
         }
-        column.style.backgroundColor = "#FF9999";
+        column.style.backgroundColor = "#E0FFFF"; //클릭했을 때 배경색 
         column.classList.add("choiceDay");
     }
     function autoLeftPad(num, digit) {
@@ -173,5 +153,6 @@
     <tbody></tbody>
 </table>
 </div>   
+<br><br><br>
 </body>
 </html>
