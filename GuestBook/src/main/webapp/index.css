@@ -10,6 +10,7 @@
                 height: 100px;
                 border-bottom: 1vw solid #3399CC;
                 margin: 10px;
+                margin-right: 5px;
             }
             .headerbtn{
                 text-align: right;
@@ -29,11 +30,11 @@
             
             .btn1{
            		width: 10vw;
-			    font-size: 16px;
+			    font-size: 2vw;
 			    font-weight: 600;
 			    color: #fff;
 			    cursor: pointer;
-			    margin: 20px;
+			    margin: 1px;
 			    height: 55px;
 			    text-align:center;
 			    border: none;
@@ -43,6 +44,7 @@
 			    -o-transition: all .4s ease-in-out;
 			    -webkit-transition: all .4s ease-in-out;
 			    transition: all .4s ease-in-out;
+			    background-color: #3399CC;
             }
             
             .btn1:hover {
@@ -56,9 +58,12 @@
 			.btn1:focus {
 			    outline: none;
 			}
-			.btn1.color-10 {
+			/* .btn1.color-10 {
 			     background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
     			 box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+			} */
+			#btn_main{
+			color: #111;
 			}
 
 

@@ -18,7 +18,8 @@
         <img class="rogoimg" src="img/rogoimg.png" onclick="location.href='index.jsp'">
             <div class="headerbtn">
             <header>
-            	<button class="btn1 color1" onclick="location.href='List.jsp'">목록</button>
+            <button class="btn1" id="btn_main" onclick="location.href='index.jsp'">홈 </button>
+            	<button class="btn1" onclick="location.href='List.jsp'">목록</button>
                 <button class="btn1 color2" onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
             </div> 
@@ -50,7 +51,7 @@
                      });
     
                 </script>
-                <button class="btn2" type="submit">등록</button>
+                <button class="btn1" type="submit">등록</button><br><br>
             </form>
         </section>
     </body>
