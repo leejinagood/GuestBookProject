@@ -6,11 +6,9 @@
 <meta charset="UTF-8">
 <title>calender</title>
 </head>
+    <img class="daelim" src="img/daelim.png"><br><br>
 <link rel="stylesheet" href="Calender.css">
 <body>
-<style>
-		
-</style>
 <img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
         <div class="headerbtn">
             <header>

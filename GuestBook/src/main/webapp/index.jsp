@@ -13,6 +13,7 @@
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         <title>Write</title>
     </head>
+    <img class="daelim" src="img/daelim.png"><br><br>
     <link rel="stylesheet" href="index.css">
     <body>
     <div class="head">
