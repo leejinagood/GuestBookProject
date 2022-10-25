@@ -121,7 +121,7 @@
 
             // data URL 표시 안함 dataurl.value = image_data_url;
             
-            click_button.style.display = 'none'; <!--[촬영] 버튼 클릭시 [촬영] 버튼 숨기기--> 
+            click_button.style.display = 'block'; <!--[촬영] 버튼 클릭시 [촬영] 버튼 숨기기 이지만 현재 구현에 어려움이 있음으로 우선 표시로 진행--> 
             re_click_button.style.display = 'bolck'; <!--[촬영] 버튼 클릭시 [재촬영] 버튼 보이기-->           
             dataurl_container.style.display = 'block'; <!--[촬영] 버튼 클릭시 '사진결과' 영역 보이기-->  
             Confirmation.style.display = 'block'; <!--[촬영] 버튼 클릭시 [사진결정] 버튼 보이기-->                    
