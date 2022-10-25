@@ -34,7 +34,6 @@
                     <textarea id="summernote">
                     </textarea>
                 </div>
-    
                 <script>
                      $('#summernote').summernote({
                         height: 350,
@@ -54,7 +53,15 @@
                      });
     
                 </script>
-                <button class="btn1" id="btn_main" type="submit">등록</button><br><br>
+                <button class="btn1" id="btn_main" type="submit" name="javascript">등록</button><br><br>
+                
+                <script type="text/javascript">
+  				if(summernote==0)
+                alert("내용을 입력하세요 ");
+  				else
+  					alert("등록 되었습니다.";)
+				</script>
+				
             </form>
         </section>
     </body>
