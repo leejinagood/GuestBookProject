@@ -31,6 +31,27 @@
 				imgfile_name++;
 				String path = ("/Users/seodong-geun/Desktop/test/" + Integer.toString(imgfile_name));  // imgfile_name 이름으로 생성할 폴더 경로 
 				File newFile = new File(path);
+				if(newFile.isFile()){
+					continue;
+				}
+				String data = base64data.split(",")[1]; // 문자열 데이터를 ","부터 자르기 
+				byte[] imageBytes = Base64.getDecoder().decode(data);
+
+				// 이미지 파일 저장
+				try {
+					
+					BufferedImage bufImg = ImageIO.read(new ByteArrayInputStream(imageBytes));
+					ImageIO.write(bufImg, "jpeg", newFile);			
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			}
+			if(filelist[i].isFile()){
+				String path = ("/Users/seodong-geun/Desktop/test/" + Integer.toString(imgfile_name));  // imgfile_name 이름으로 생성할 폴더 경로 
+				File newFile = new File(path);
 				
 				String data = base64data.split(",")[1]; // 문자열 데이터를 ","부터 자르기 
 				byte[] imageBytes = Base64.getDecoder().decode(data);
@@ -45,6 +66,7 @@
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				break;
 			}
 		}
 
