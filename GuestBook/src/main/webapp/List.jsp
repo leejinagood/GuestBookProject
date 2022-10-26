@@ -1,3 +1,4 @@
+@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
@@ -5,56 +6,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>List</title>
 </head>
 <style>
+			body{
 				body{
                 width: 800px;
                 margin: 0 auto;
                 text-align: center;
-            }
     
             header {
                 height: 100px;
+                border-bottom: 1vw solid #3399CC;
                 border-bottom: 1px solid black;
                 margin: 10px;
             }
     
             .headerbtn{
                 text-align: right;
+                margin-top: 30px;
                 margin-top: 10px;
             }
             
             .search{
             width: 50vw;
             border: 1px solid #1b5ac;
-            background: #fffff;
-            online: none;
-            color: #fffff;
             }
 </style>
 <body>
+		<img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
 		<img src="img/rogo.png" onclick="location.href='index.jsp'" style="width: 10vw">
         <div class="headerbtn">
             <header>
 	            <input class = "search" type="text" placeholder="제목+내용 검색하세요 " >
-	            <button>검색 </button>
-	            <button onclick="location.href='index.jsp'">홈 </button>
-                <button onclick="location.href='List.jsp'">목록</button>
                 <button onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
          </div>        
+        	
 <% 
-String sUrl = "jdbc:mysql://localhost:3306/class2jsp";
+String sUrl = "jdbc:mysql://localhost:3306/guestbook_1";
 String sUser = "root";
-String sPwd = "1234";
+String sPwd = "abcd1234";
 
 Class.forName("com.mysql.jdbc.Driver");
 Connection MyConn = DriverManager.getConnection(sUrl, sUser, sPwd);
 out.println("데이터베이스 연결이 성공했습니다.<br>");
 
-String sSql = "SELECT * FROM class2jsp.tb_study order by nIDX desc;";
+String sSql = "SELECT * FROM guestbook_1.user_tb order by number desc;";
 
 Statement stmt = null;
 ResultSet rs = null;
@@ -73,9 +71,9 @@ private final class TestDAO {
 	
 	
 	public TestDAO(){ // 생성자
-		String dbURL="jdbc:mysql://localhost:3306/class2jsp";
+		String dbURL="jdbc:mysql://localhost:3306/guestbook_1";
 		String dbID="root"; // db 아이디
-		String dbPassword="1234"; // db 비밀번호
+		String dbPassword="abcd1234"; // db 비밀번호
 		
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); // 드라이버 로드
@@ -90,7 +88,7 @@ private final class TestDAO {
 		int result = 0;
 		ResultSet rs = null;
 		Statement stmt = null;
-		String sql = "SELECT * FROM class2jsp.tb_study order by nIDX desc;";
+		String sql = "SELECT * FROM guestbook_1.user_tb order by number desc;";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -110,7 +108,7 @@ private final class TestDAO {
 	Vector<TestDTO> selectPage(String table, int start, int pageCnt){
 		ResultSet rs=null;
 		
-		String SQL = "SELECT * FROM class2jsp.tb_study order by nIDX desc limit ?, ?";
+		String SQL = "SELECT * FROM guestbook_1.user_tb order by number desc limit ?, ?";
 		Vector<TestDTO> v = new Vector<TestDTO>();
 		
 		try{
@@ -120,10 +118,10 @@ private final class TestDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				TestDTO dto = new TestDTO();
-				//dto.setnIDX(rs.getString("nIDX"));
-				dto.setvName(rs.getString("vName"));
-				dto.setnPoint(rs.getString("nPoint"));
-				dto.setdRegDate(rs.getString("dRegDate"));
+				//dto.setnIDX(rs.getString("number"));
+				dto.setvName(rs.getString("image"));
+				dto.setnPoint(rs.getString("memo"));
+				dto.setdRegDate(rs.getString("data"));
 				v.add(dto);
 			}
 		}catch(Exception e){
@@ -138,35 +136,35 @@ private final class TestDAO {
 	
 	
 	public final class TestDTO{
-		private String  nIDX;
-		private String vName;
-		private String nPoint;
-		private String dRegDate;
+		private String  number;
+		private String image;
+		private String memo;
+		private String data;
 		
 		
 		public void setnIDX(String nIDX) {
-	        this.nIDX = nIDX;
+	        this.number = nIDX;
 	    }
 	    public String  getnIDX() {
-	        return nIDX;
+	        return number;
 	    }
 	    public void setvName(String vName) {
-	        this.vName = vName;
+	        this.image = vName;
 	    }
 	    public String getvName() {
-	        return vName;
+	        return image;
 	    }
 	    public void setnPoint(String nPoint) {
-	        this.nPoint = nPoint;
+	        this.memo = nPoint;
 	    }
 	    public String getnPoint() {
-	        return nPoint;
+	        return memo;
 	    }
 	    public void setdRegDate(String dRegDate) {
-	        this.dRegDate = dRegDate;
+	        this.data = dRegDate;
 	    }
 	    public String getdRegDate() {
-	        return dRegDate;
+	        return data;
 	    }
 	}
 	
