@@ -22,6 +22,7 @@
      <style type="text/css">
         #start-camera {
             margin-top: 50px;
+            border: 0px;
         }
         
         #video {
@@ -31,6 +32,12 @@
         
         #click-photo {
             display: none;
+            width: 10vw;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #fff;
+			cursor: pointer;
+            height: 3vw;
         }
         
         #re_click-photo {
@@ -64,6 +71,15 @@
             font-size: 13px;
             box-sizing: border-box;
         }
+        #Confirmation{
+        	color: #fff;
+        }
+        #cameraResult{
+        	color: #000;
+        	background-color: #fff;
+        	border: 1px solid black;
+        	border-radius: 0px;
+        }
     </style>  
       
     <title>지공모 방문게시판</title>
@@ -86,21 +102,23 @@
     <!-- 헤더 영역 끝 -->
     
     <!-- 사진 촬영 영역 -->
+    <div id = "camera_font" ><p><br>카메라를 클릭하세요!</div>
     <button id="start-camera"><img src="img/Kamera.png"style="width: 40vw"></button>   
     <video id="video" width="320" height="240" autoplay></video><br>
     <button id="click-photo">촬영</button>
-
+    <div id = "photo_font" style="display:block"><br>[촬영]버튼을 눌러주세요!<br><br></div>
 	<!-- 촬영한 사진 결과 영역-->
     <div id="dataurl-container">
-   		<div id="dataurl-header">촬영결과</div>	
+    <br><br>
+   		<button class="btn1" id="cameraResult">촬영 결과 </button>	<br>
         <canvas id="canvas" width="320" height="240" ></canvas>    
          <!-- <textarea id="dataurl" readonly></textarea> 사진 데이터는 표시 안함-->                
     	<form action = "Save.jsp" method = "Post" name = "MyForm">
 			<input type="hidden" name="photodata" value=""> 		   
 	</div>
 	
-    <div id = "camera_font" ><p><br>카메라를 클릭하세요!<br><br></div>
-    <div id = "photo_font" style="display:block"><br>[촬영]버튼을 눌러주세요!<br><br></div>
+    
+
     <div id = "save_font"style="display:none"><br>[사진저장] 클릭 후 재촬영은 불가합니다! <br><br></div>
      
     <!-- 사진촬영 스크립트 영역-->
@@ -141,7 +159,7 @@
         
         
     	<!-- [촬영] 버튼 클릭시 동작하는 함수-->
-        click_button.addEventListener('click', function() {
+        	click_button.addEventListener('click', function() {
             canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
             let image_data_url = canvas.toDataURL('image/jpeg');
 			document.MyForm.photodata.value = image_data_url;
@@ -181,15 +199,12 @@
                fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
             });
        </script>
+       <br><br><br>
        <!-- form(MyForm)과 내용을 담고 Save.jsp로 전달하는 버튼-->
-         <button type="submit" id= "Confirmation" >사진 결정</button>
+         <button type="submit" class="btn1" id="Confirmation" >등록 </button>
+       <br><br><br>
      </form>
                 
-     <script type="text/javascript">
-		if(document.note.summernote.value=="")
-		          alert("내용을 입력하세요 ");
-		else
-			alert("등록 되었습니다.";)
-	</script>
+     
     </body>
     </html>

@@ -11,12 +11,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<a href="https://dept.daelim.ac.kr/com/index.do"><img class="daelim" src="img/daelim.png" ></a><br><br>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <script>
 </script>
+<link rel="stylesheet" href="Save.css">
 <body>
+ <img class="rogoimg" src="img/rogoimg.png" onclick="location.href='index.jsp'"><br><br><br>
 	<%
 		// 넘어온 정보들을 저장하고 다시 홈으로 돌아가는 페이지
 		// 작성한 게시글(텍스트)정보와 촬영한 사진을 저장한다.
@@ -28,7 +31,9 @@
 		int imgfile_name = 1; // 최종적으로 사진 파일 명이 될 데이터 (받아오는 값 혹은 자동 증가값 예정)
 	
 		String notetext = request.getParameter("text"); // 전달받은 게시글 Data
-		String basic_path = "/Users/seodong-geun/Desktop/test/"; // 서버로 사용할 컴퓨터에 사진 저장 폴더 경로
+		String basic_path = "/Users/jina-lee/Desktop/test/"; // 서버로 사용할 컴퓨터에 사진 저장 폴더 경로
+		///Users/jina-lee/Desktop/test/
+		///Users/seodong-geun/Desktop/test/
 		
 		// 파일 덮어쓰기 방지 코드
 		File newFile1 = new File(basic_path);   // 로컬 서버의 사진폴더 객체를 생성
@@ -82,6 +87,10 @@
 		}
 		out.println("massage : "+ notetext +"<br>");	
 %>
+<script type="text/javascript">
+  alert("등록되었습니다. ");
+</script>
+ <button class="btn1" id="btn_main" onclick="location.href='index.jsp'">홈 </button>
 </body>
 
 </html>
