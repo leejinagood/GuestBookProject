@@ -72,18 +72,18 @@
 
 <body>	
     <button id="start-camera">촬영시작</button>    
-    <video  id="video" width="320" height="240" autoplay></video>
+    <video  id="video" width="320" height="240" autoplay style="float :left"></video>
     <button id="click-photo">촬영</button>
     <button id="re_click-photo">재촬영</button>
 
 	<!-- 촬영한 사진 결과 영역-->
     <div id="dataurl-container">
-   		<div id="dataurl-header">촬영결과</div>	
+   		<div id="dataurl-header" style="float :right" >촬영결과</div>	
         <canvas id="canvas" width="320" height="240"></canvas>    
          <!-- <textarea id="dataurl" readonly></textarea> 사진 데이터는 표시 안함-->                
     	<form action = "photoResult.jsp" method = "Post" name = "MyForm">
 			<input type="hidden" name="photodata" value=""> 
-    		<button = "submit" id = "Confirmation" display='none'>사진 결정</button>
+    		<button type = "submit" id = "Confirmation" style = "display:none">사진 결정</button>
         </form>
     </div>
 	
