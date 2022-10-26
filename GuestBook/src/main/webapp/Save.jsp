@@ -84,9 +84,11 @@
 				}
 				break;
 			}
-		}
-		out.println("massage : "+ notetext +"<br>");	
-%>
+		}%>
+	<div class="text">
+		<% 
+		out.println("내용 : "+ notetext +"<br>");	
+%></div>
 <script type="text/javascript">
   alert("등록되었습니다. ");
 </script>

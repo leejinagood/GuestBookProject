@@ -1,4 +1,3 @@
-@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
@@ -8,41 +7,24 @@
 <head>
 <title>List</title>
 </head>
-<style>
-			body{
-				body{
-                width: 800px;
-                margin: 0 auto;
-                text-align: center;
-    
-            header {
-                height: 100px;
-                border-bottom: 1vw solid #3399CC;
-                border-bottom: 1px solid black;
-                margin: 10px;
-            }
-    
-            .headerbtn{
-                text-align: right;
-                margin-top: 30px;
-                margin-top: 10px;
-            }
-            
-            .search{
-            width: 50vw;
-            border: 1px solid #1b5ac;
-            }
-</style>
+<a href="https://dept.daelim.ac.kr/com/index.do"><img class="daelim" src="img/daelim.png" ></a><br><br>
+    <link rel="stylesheet" href="List.css">
+
 <body>
 		<img src="img/rogoimg.png" onclick="location.href='index.jsp'" style="width: 10vw">
-		<img src="img/rogo.png" onclick="location.href='index.jsp'" style="width: 10vw">
         <div class="headerbtn">
             <header>
-	            <input class = "search" type="text" placeholder="제목+내용 검색하세요 " >
-                <button onclick="location.href='Calender.jsp'">캘린더</button>
+            	<button class="btn1"  onclick="location.href='index.jsp'">홈 </button>
+            	<button class="btn1" id="btn_main" onclick="location.href='List.jsp'">목록</button>
+                <button class="btn1 color2" onclick="location.href='Calender.jsp'">캘린더</button>
             </header>
-         </div>        
-        	
+         </div>      
+         
+         <div class="ser">
+    <input type="text" class="serc">
+    <button class="serch" onclick="location.href = '주소';">검색</button>
+    </div>
+       
 <% 
 String sUrl = "jdbc:mysql://localhost:3306/guestbook_1";
 String sUser = "root";
@@ -50,9 +32,8 @@ String sPwd = "abcd1234";
 
 Class.forName("com.mysql.jdbc.Driver");
 Connection MyConn = DriverManager.getConnection(sUrl, sUser, sPwd);
-out.println("데이터베이스 연결이 성공했습니다.<br>");
 
-String sSql = "SELECT * FROM guestbook_1.user_tb order by number desc;";
+String sSql = "SELECT * FROM guestbook_1.user_tb order by data ASC;";
 
 Statement stmt = null;
 ResultSet rs = null;
@@ -60,7 +41,6 @@ ResultSet rs = null;
 try{
 	stmt = MyConn.createStatement();
 	rs = stmt.executeQuery(sSql);
-	out.println("Select 성공. <br>");
 %>
 
 <%!
@@ -88,7 +68,7 @@ private final class TestDAO {
 		int result = 0;
 		ResultSet rs = null;
 		Statement stmt = null;
-		String sql = "SELECT * FROM guestbook_1.user_tb order by number desc;";
+		String sql = "SELECT * FROM guestbook_1.user_tb order by data ASC;";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -108,7 +88,7 @@ private final class TestDAO {
 	Vector<TestDTO> selectPage(String table, int start, int pageCnt){
 		ResultSet rs=null;
 		
-		String SQL = "SELECT * FROM guestbook_1.user_tb order by number desc limit ?, ?";
+		String SQL = "SELECT * FROM guestbook_1.user_tb order by data ASC limit ?, ?";
 		Vector<TestDTO> v = new Vector<TestDTO>();
 		
 		try{
@@ -173,11 +153,10 @@ private final class TestDAO {
 
 <style>
 	td, th{
-		border: 1px solid black;
+		
 	}
 	table{
-		width: 500px;
-		border-collapse: collapse;
+		
 	}
 </style>
 
@@ -201,10 +180,11 @@ private final class TestDAO {
 		
 		Vector<TestDTO> v = dao.selectPage("board", startPage, onePageCnt);
 	%>
-	게시판 테스트<br>
+	<br><br><br>
+	<div class="table">
 	<table>
 		<tr>
-			<th>글번호</th><th>사진</th><th>글쓴이</th><th>날짜</th>
+			<th>글 번호</th><th>사진</th><th>내용 </th><th>날짜</th>
 		</tr>
 		<%	
 		for(int i=0; i<v.size(); i++){
@@ -218,16 +198,15 @@ private final class TestDAO {
 			</tr>
 		<%
 		} %>
-	</table><br>
+	</table><br></div>
 	<%
-		for(int i=1; i<=count; i++){ %>
+		for(int i=1; i<=10; i++){ %>
 			
 			<a href="List.jsp?page=<%=i %>">[<%=i%>]
 			</a>
 		<% }; %>
 	
-	<br>
-	<button onclick="ContentUp()">글쓰기</button>
+	<br><br><br><br>
 	<script>
 		function ContentUp(){
 			location.href="ContenUp.jsp"
