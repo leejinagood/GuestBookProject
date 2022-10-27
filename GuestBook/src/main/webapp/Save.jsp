@@ -6,7 +6,7 @@
 <%@ page import = "java.io.ByteArrayInputStream" %>
 <%@ page import = "java.awt.image.BufferedImage" %>
 <%@ page import = "javax.imageio.ImageIO" %>
-
+<%@page import="java.net.URLEncoder" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +34,7 @@
 		int imgfile_name = 1; // 최종적으로 사진 파일 명이 될 데이터 (받아오는 값 혹은 자동 증가값 예정)
 	
 		String notetext = request.getParameter("text"); // 전달받은 게시글 Data
-		String basic_path = "/Users/jina-lee/Desktop/test/"; // 서버로 사용할 컴퓨터에 사진 저장 폴더 경로
+		String basic_path = "C:\\img"; // 서버로 사용할 컴퓨터에 사진 저장 폴더 경로
 		///Users/jina-lee/Desktop/test/
 		///Users/seodong-geun/Desktop/test/
 		

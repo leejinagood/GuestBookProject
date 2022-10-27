@@ -81,9 +81,9 @@
       
       // DB연결
       Connection MyConn = null;
-      String sUrl = "jdbc:mysql://localhost:3306/guestBook";
+      String sUrl = "jdbc:mysql://localhost:3306/guestbook";
       String sUser = "root";
-      String sPwd = "abcd1234";
+      String sPwd = "1234";
       
       
       Class.forName("com.mysql.jdbc.Driver");
@@ -93,7 +93,8 @@
       PreparedStatement pstmt = null;
       
       try{
-    	 String sSql = "insert into board(photo, write, date)values(?,?, Now());";
+    	 String sSql = "insert into board values(null,?,?, Now());";
+
       
       pstmt = MyConn.prepareStatement(sSql);
       
@@ -110,6 +111,6 @@
       out.println("SQLEXception : " + ex.getMessage());
       }
       %>
-<%    response.sendRedirect("Save.jsp"); %>
+<%    response.sendRedirect("Save.jsp?write=" + request.getParameter("write")); %>
 </body>
 </html>

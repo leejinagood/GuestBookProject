@@ -26,25 +26,26 @@
     </div>
        
 <% 
-String sUrl = "jdbc:mysql://localhost:3306/guestbook";
-String sUser = "root";
-String sPwd = "abcd1234";
-
-Class.forName("com.mysql.jdbc.Driver");
-Connection MyConn = DriverManager.getConnection(sUrl, sUser, sPwd);
-
-String sSql = "SELECT * FROM guestbook.board order by Idx ASC;";
-
-Statement stmt = null;
-ResultSet rs = null;
-
-try{
-	stmt = MyConn.createStatement();
-	rs = stmt.executeQuery(sSql);
+		String sUrl = "jdbc:mysql://localhost:3306/guestbook";
+		String sUser = "root";
+		String sPwd = "1234";
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection MyConn = DriverManager.getConnection(sUrl, sUser, sPwd);
+		out.println("데이터베이스 연결이 성공했습니다.<br>");
+		
+		String sSql = "SELECT * FROM guestbook.board order by Idx desc;";
+		
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try{
+			stmt = MyConn.createStatement();
+			rs = stmt.executeQuery(sSql);
+			out.println("Select 성공. <br>");
 %>
 
 <%!
-
 private final class TestDAO {
 	private Connection conn; // 데이터에비스에 접근
 	private PreparedStatement pstmt;
@@ -53,8 +54,7 @@ private final class TestDAO {
 	public TestDAO(){ // 생성자
 		String dbURL="jdbc:mysql://localhost:3306/guestbook";
 		String dbID="root"; // db 아이디
-		String dbPassword="abcd1234"; // db 비밀번호
-		
+		String dbPassword="1234"; // db 비밀번호
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); // 드라이버 로드
 			conn=DriverManager.getConnection(dbURL, dbID, dbPassword); // 연결
@@ -64,11 +64,12 @@ private final class TestDAO {
 			e.printStackTrace();
 		}
 	}	
+	
 	public int selectCnt (String table) {
 		int result = 0;
 		ResultSet rs = null;
 		Statement stmt = null;
-		String sql = "SELECT * FROM guestbook.board order by Idx ASC;";
+		String sql = "SELECT * FROM guestbook.board order by Idx desc;";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -88,7 +89,7 @@ private final class TestDAO {
 	Vector<TestDTO> selectPage(String table, int start, int pageCnt){
 		ResultSet rs=null;
 		
-		String SQL = "SELECT * FROM guestbook.board order by Idx ASC limit ?, ?";
+		String SQL = "SELECT * FROM guestbook.board order by Idx desc limit ?, ?";
 		Vector<TestDTO> v = new Vector<TestDTO>();
 		
 		try{
@@ -98,10 +99,10 @@ private final class TestDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				TestDTO dto = new TestDTO();
-				//dto.setnIDX(rs.getString("number"));
-				dto.setvName(rs.getString("photo"));
-				dto.setnPoint(rs.getString("wirite"));
-				dto.setdRegDate(rs.getString("date"));
+				dto.setIdx(rs.getString("Idx"));
+				dto.setphoto(rs.getString("photo"));
+				dto.setwrite(rs.getString("write"));
+				dto.setdate(rs.getString("date"));
 				v.add(dto);
 			}
 		}catch(Exception e){
@@ -118,50 +119,37 @@ private final class TestDAO {
 	public final class TestDTO{
 		private String  Idx;
 		private String photo;
-		private String wirite;
+		private String write;
 		private String date;
 		
-		
-		public void setnIDX(String nIDX) {
-	        this.Idx = nIDX;
+		public void setIdx(String Idx) {
+	        this.Idx = Idx;
 	    }
-	    public String  getnIDX() {
+	    public String  getIdx() {
 	        return Idx;
 	    }
-	    public void setvName(String vName) {
-	        this.photo = vName;
+	    public void setphoto(String photo) {
+	        this.photo = photo;
 	    }
-	    public String getvName() {
+	    public String getphoto() {
 	        return photo;
 	    }
-	    public void setnPoint(String nPoint) {
-	        this.wirite = nPoint;
+	    public void setwrite(String write) {
+	        this.write = write;
 	    }
-	    public String getnPoint() {
-	        return wirite;
+	    public String getwrite() {
+	        return write;
 	    }
-	    public void setdRegDate(String dRegDate) {
-	        this.date = dRegDate;
+	    public void setdate(String date) {
+	        this.date = date;
 	    }
-	    public String getdRegDate() {
+	    public String getdate() {
 	        return date;
 	    }
 	}
 	
 
 %>
-
-<style>
-	td, th{
-		
-	}
-	table{
-		
-	}
-</style>
-
-</head>
-<body>
 	<% 
 		TestDAO dao = new TestDAO();
 		int count = dao.selectCnt("board"); // 전체행 갯수
@@ -180,51 +168,46 @@ private final class TestDAO {
 		
 		Vector<TestDTO> v = dao.selectPage("board", startPage, onePageCnt);
 	%>
-	<br><br><br>
-	<div class="table">
 	<table>
 		<tr>
-			<th>글 번호</th><th>사진</th><th>내용 </th><th>날짜</th>
+			<th>글번호</th>
+			<th>사진</th>
+			<th>게시글</th>
+			<th>날짜</th>
 		</tr>
-		<%	
-		for(int i=0; i<v.size(); i++){
-			
-			%>
-			<tr>
-				<td><%= i+1  %></td>
-				<td><%= v.get(i).getvName() %></td>
-				<td><%= v.get(i).getnPoint() %> </td>
-				<td><%= v.get(i).getdRegDate()%></td>
-			</tr>
 		<%
-		} %>
-	</table><br></div>
-	<%
-		for(int i=1; i<=10; i++){ %>
-			
-			<a href="List.jsp?page=<%=i %>">[<%=i%>]
-			</a>
-		<% }; %>
+		for(int j=0; j<v.size(); j++){
+		%>
+			<tr>
+				<td><%= v.get(j).getIdx()%></td>
+				<td><%= v.get(j).getphoto() %></td>
+				<td><%= v.get(j).getwrite() %> </td>
+				<td><%= v.get(j).getdate()%></td>
+			</tr>
+		<% 
+		}
+		%>
+	</table><br>
+
+	   <%
+		for(int j=1; j<=count; j++){ %>
+			<a href="List.jsp?page=<%=j %>">[<%=j%>]</a>
+		<%  }; %>
 	
-	<br><br><br><br>
-	<script>
-		function ContentUp(){
-			location.href="ContenUp.jsp"
-		};
-	</script>
+	<br>
 <%
-}catch(SQLException ex){ 
-	out.println("Select 에러 <br>");
-	out.println("SQLException : " + ex.getMessage());
-} finally {
-	if(rs!= null)
-		rs.close();
-	if(stmt!= null)
-		stmt.close();
-	if(MyConn != null)
-		MyConn.close();
-}
-	%>
+	}catch(SQLException ex){ 
+		out.println("Select 에러 <br>");
+		out.println("SQLException : " + ex.getMessage());
+	} finally {
+		if(rs!= null)
+			rs.close();
+		if(stmt!= null)
+			stmt.close();
+		if(MyConn != null)
+			MyConn.close();
+	}
+%>
 	
 
 </body>
