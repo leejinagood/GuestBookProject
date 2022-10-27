@@ -26,14 +26,14 @@
     </div>
        
 <% 
-String sUrl = "jdbc:mysql://localhost:3306/guestbook_1";
+String sUrl = "jdbc:mysql://localhost:3306/guestbook";
 String sUser = "root";
 String sPwd = "abcd1234";
 
 Class.forName("com.mysql.jdbc.Driver");
 Connection MyConn = DriverManager.getConnection(sUrl, sUser, sPwd);
 
-String sSql = "SELECT * FROM guestbook_1.user_tb order by data ASC;";
+String sSql = "SELECT * FROM guestbook.board order by Idx ASC;";
 
 Statement stmt = null;
 ResultSet rs = null;
@@ -51,7 +51,7 @@ private final class TestDAO {
 	
 	
 	public TestDAO(){ // 생성자
-		String dbURL="jdbc:mysql://localhost:3306/guestbook_1";
+		String dbURL="jdbc:mysql://localhost:3306/guestbook";
 		String dbID="root"; // db 아이디
 		String dbPassword="abcd1234"; // db 비밀번호
 		
@@ -68,7 +68,7 @@ private final class TestDAO {
 		int result = 0;
 		ResultSet rs = null;
 		Statement stmt = null;
-		String sql = "SELECT * FROM guestbook_1.user_tb order by data ASC;";
+		String sql = "SELECT * FROM guestbook.board order by Idx ASC;";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -88,7 +88,7 @@ private final class TestDAO {
 	Vector<TestDTO> selectPage(String table, int start, int pageCnt){
 		ResultSet rs=null;
 		
-		String SQL = "SELECT * FROM guestbook_1.user_tb order by data ASC limit ?, ?";
+		String SQL = "SELECT * FROM guestbook.board order by Idx ASC limit ?, ?";
 		Vector<TestDTO> v = new Vector<TestDTO>();
 		
 		try{
@@ -99,9 +99,9 @@ private final class TestDAO {
 			while(rs.next()){
 				TestDTO dto = new TestDTO();
 				//dto.setnIDX(rs.getString("number"));
-				dto.setvName(rs.getString("image"));
-				dto.setnPoint(rs.getString("memo"));
-				dto.setdRegDate(rs.getString("data"));
+				dto.setvName(rs.getString("photo"));
+				dto.setnPoint(rs.getString("wirite"));
+				dto.setdRegDate(rs.getString("date"));
 				v.add(dto);
 			}
 		}catch(Exception e){
@@ -116,35 +116,35 @@ private final class TestDAO {
 	
 	
 	public final class TestDTO{
-		private String  number;
-		private String image;
-		private String memo;
-		private String data;
+		private String  Idx;
+		private String photo;
+		private String wirite;
+		private String date;
 		
 		
 		public void setnIDX(String nIDX) {
-	        this.number = nIDX;
+	        this.Idx = nIDX;
 	    }
 	    public String  getnIDX() {
-	        return number;
+	        return Idx;
 	    }
 	    public void setvName(String vName) {
-	        this.image = vName;
+	        this.photo = vName;
 	    }
 	    public String getvName() {
-	        return image;
+	        return photo;
 	    }
 	    public void setnPoint(String nPoint) {
-	        this.memo = nPoint;
+	        this.wirite = nPoint;
 	    }
 	    public String getnPoint() {
-	        return memo;
+	        return wirite;
 	    }
 	    public void setdRegDate(String dRegDate) {
-	        this.data = dRegDate;
+	        this.date = dRegDate;
 	    }
 	    public String getdRegDate() {
-	        return data;
+	        return date;
 	    }
 	}
 	

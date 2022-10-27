@@ -81,7 +81,7 @@
       
       // DB연결
       Connection MyConn = null;
-      String sUrl = "jdbc:mysql://localhost:3306/guestBook_1";
+      String sUrl = "jdbc:mysql://localhost:3306/guestBook";
       String sUser = "root";
       String sPwd = "abcd1234";
       
@@ -93,7 +93,7 @@
       PreparedStatement pstmt = null;
       
       try{
-    	 String sSql = "insert into user_tb(image, memo, data)values(?,?, Now());";
+    	 String sSql = "insert into board(photo, write, date)values(?,?, Now());";
       
       pstmt = MyConn.prepareStatement(sSql);
       
