@@ -21,6 +21,9 @@
 <body>
  <img class="rogoimg" src="img/rogoimg.png" onclick="location.href='index.jsp'"><br><br><br>
 	<%
+    // 전 페이지에서 넘어온 값 저장
+    request.setCharacterEncoding("UTF-8");
+    String sWrite = request.getParameter("write"); //게시판 정보 받아오기
 		// 넘어온 정보들을 저장하고 다시 홈으로 돌아가는 페이지
 		// 작성한 게시글(텍스트)정보와 촬영한 사진을 저장한다.
 		
@@ -87,7 +90,7 @@
 		}%>
 	<div class="text">
 		<% 
-		out.println("내용 : "+ notetext +"<br>");	
+		out.println("내용 : "+ sWrite +"<br>");	
 %></div>
 <script type="text/javascript">
   alert("등록되었습니다. ");

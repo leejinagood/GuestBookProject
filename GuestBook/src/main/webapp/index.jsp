@@ -177,7 +177,7 @@
     
 	<!-- 게시글 작성 영역-->
     <div>
-       <textarea id="summernote" name = "text"></textarea>
+       <textarea id="summernote" name="write" ></textarea>
     </div>
     
     <!-- 게시글 스크립트 영역-->
@@ -201,7 +201,7 @@
        </script>
        <br><br><br>
        <!-- form(MyForm)과 내용을 담고 Save.jsp로 전달하는 버튼-->
-         <button type="submit" class="btn1" id="Confirmation" >등록 </button>
+         <button type="submit" class="btn1" id="Confirmation" formaction="InsertOOK.jsp" >등록 </button>
        <br><br><br>
      </form>
                 

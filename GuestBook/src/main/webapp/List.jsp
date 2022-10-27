@@ -193,7 +193,7 @@ private final class TestDAO {
 			<tr>
 				<td><%= i+1  %></td>
 				<td><%= v.get(i).getvName() %></td>
-				<td><a href="index2.jsp?nIDX=<%=i %>"><%= v.get(i).getnPoint() %> </td>
+				<td><%= v.get(i).getnPoint() %> </td>
 				<td><%= v.get(i).getdRegDate()%></td>
 			</tr>
 		<%

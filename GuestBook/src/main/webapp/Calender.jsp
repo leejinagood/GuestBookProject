@@ -84,9 +84,12 @@
                         column.onclick = function(){ calendarChoiceDay(this); }
                     }
                     else if(date.getDate() == day) { //오늘 
+                    	
                         column.style.backgroundColor = "#E0FFFF";
                         column.style.cursor = "pointer";
-                        column.onclick = function(){ calendarChoiceDay(this); }
+                        column.onclick = function(){ calendarChoiceDay(this); 
+                        
+                        }
                     }
                 } else if(today.getMonth() < date.getMonth()) {
                     if(Math.sign(day) == 1 && day <= lastDate.getDate()) {
