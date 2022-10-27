@@ -1,3 +1,11 @@
+<!-- 스키마 : guestbook 생성 후
+CREATE TABLE `guestbook`.`board` (
+  `Idx` INT NOT NULL AUTO_INCREMENT,
+  `photo` VARCHAR(1000) NULL,
+  `write` VARCHAR(1000) NULL,
+  `date` DATETIME NOT NULL,
+  PRIMARY KEY (`Idx`));
+ -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
@@ -176,11 +184,15 @@ private final class TestDAO {
 			<th>날짜</th>
 		</tr>
 		<%
+		String picture=" ";
+		
 		for(int j=0; j<v.size(); j++){
+		   picture=v.get(j).getphoto();
+		   picture=picture.substring(81,87);
 		%>
 			<tr>
 				<td><%= v.get(j).getIdx()%></td>
-				<td><%= v.get(j).getphoto() %></td>
+				<td><img src="img/<%=picture %>" ></td>
 				<td><%= v.get(j).getwrite() %> </td>
 				<td><%= v.get(j).getdate()%></td>
 			</tr>

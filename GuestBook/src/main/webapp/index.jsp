@@ -110,7 +110,6 @@
 	<!-- 촬영한 사진 결과 영역-->
     <div id="dataurl-container">
     <br><br>
-   		<button class="btn1" id="cameraResult">촬영 결과 </button>	<br>
         <canvas id="canvas" width="320" height="240" ></canvas>    
          <!-- <textarea id="dataurl" readonly></textarea> 사진 데이터는 표시 안함-->                
     	<form action = "Save.jsp" method = "Post" name = "MyForm">
@@ -201,7 +200,7 @@
        </script>
        <br><br><br>
        <!-- form(MyForm)과 내용을 담고 Save.jsp로 전달하는 버튼-->
-         <button type="submit" class="btn1" id="Confirmation" formaction="InsertOOK.jsp" >등록 </button>
+         <button type="submit" class="btn1" id="Confirmation" formaction="Save.jsp" >등록 </button>
        <br><br><br>
      </form>
                 
