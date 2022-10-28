@@ -82,7 +82,7 @@
         }
     </style>  
       
-    <title>지공모 방문게시판</title>
+    <title>지공모 방문게시판..</title>
     </head>
     <a href="https://dept.daelim.ac.kr/com/index.do"><img class="daelim" src="img/daelim.png" ></a><br><br>
     <link rel="stylesheet" href="index.css">
