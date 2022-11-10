@@ -188,7 +188,12 @@ private final class TestDAO {
 		
 		for(int j=0; j<v.size(); j++){
 		   picture=v.get(j).getphoto();
+		   if (picture.length() == 88 ){
+			   picture=picture.substring(81,88);
+		   }
+		   else{
 		   picture=picture.substring(81,87);
+		   }
 		%>
 			<tr>
 				<td><%= v.get(j).getIdx()%></td>

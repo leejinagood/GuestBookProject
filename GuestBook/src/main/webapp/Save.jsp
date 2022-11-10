@@ -95,10 +95,6 @@
       String sPhoto = request.getParameter("photo"); //사진 데이터 받아오기
       String sWrite = request.getParameter("write"); //게시판 정보 받아오기
       
-      out.println(sPhoto + "<br>");
-      //out.println(sWrite + "<br>");
-      
-      
       // DB연결
       Connection MyConn = null;
       String sUrl = "jdbc:mysql://localhost:3306/guestbook";
@@ -132,8 +128,9 @@
       }
       %>
 	<div class="text">
+	<br> 사진 결과 <br> <img src="<%=base64data%>"> <br>
 		<% 
-		out.println("내용 : "+ sWrite +"<br>");	
+		out.println("내용 <br>"+ sWrite +"<br>");	
 %></div>
 <script type="text/javascript">
   alert("등록되었습니다. ");
